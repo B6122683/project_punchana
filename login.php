@@ -1,15 +1,11 @@
-<?php include('server.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>USER LOGIN</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-
-
 </head>
-
 <body>
-    
+    <?php include('server.php'); ?>
     <div class="header">
         <h2>เข้าสู่ระบบ</h2>
         </div>
@@ -32,6 +28,5 @@
             ยังไม่เป็นสมาชิก ? <a href="register.php">สมัครสมาชิก</a>
         </p>
     </form>
-    
 </body>
 </html>

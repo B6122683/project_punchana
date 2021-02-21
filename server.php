@@ -62,12 +62,12 @@
 			if ($_SESSION["user_type"] == "admin") {
 				//$_SESSION['username'] = $username;
 				$_SESSION['success']  = "You are now logged in";
-				header("location: index.html");		  
+				header("location: index.php");		  
 			}
             if ($_SESSION["user_type"] == "user") {
 				//$_SESSION['username'] = $username;
 				$_SESSION['success']  = "You are now logged in";
-				header("location: index.html");
+				header("location: index.php");
 			}
 		}else {
 			array_push($errors, "Wrong username/password combination");

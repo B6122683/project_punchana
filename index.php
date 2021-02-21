@@ -5,6 +5,7 @@
 <title>ปันชนะ</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
@@ -109,12 +110,12 @@
  $result = mysqli_query($connect, $sql);  
  $output .= '  
       <div class="table-responsive">  
-           <table class="table table-bordered">  
+           <table class="table table-borderless">  
                 <tr>  
-                     <th width="10%">Id</th>  
+                    
                      <th width="40%">First Name</th>  
                      <th width="40%">Last Name</th>  
-                     <th width="10%">Delete</th>  
+                     
                 </tr>';  
  if(mysqli_num_rows($result) > 0)  
  {  
@@ -122,19 +123,19 @@
       {  
            $output .= '  
                 <tr>  
-                     <td>'.$row["id"].'</td>  
-                     <td class="name_proj" data-id1="'.$row["id"].'" contenteditable>'.$row["name_proj"].'</td>  
-                     <td class="description" data-id2="'.$row["id"].'" contenteditable>'.$row["description"].'</td>  
-                     <td><button type="button" name="delete_btn" data-id3="'.$row["id"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
+                    
+                     <td class="name_proj" data-id1="'.$row["id"].'" >'.$row["name_proj"].'</td>  
+                     <td class="description" data-id2="'.$row["id"].'" >'.$row["description"].'</td>  
+                   
                 </tr>  
            ';  
       }  
       $output .= '  
            <tr>  
-                <td></td>  
+               
                 <td id="name_proj" contenteditable></td>  
                 <td id="description" contenteditable></td>  
-                <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>  
+               
            </tr>  
       ';  
  }  
@@ -217,5 +218,6 @@
 <script src="layout/scripts/jquery.min.js"></script>
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

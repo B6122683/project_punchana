@@ -1,17 +1,22 @@
 <?php include('server.php'); ?>
 <!DOCTYPE html>
-<html>
+<html style="background-color:black;">
 <head>
     <title>USER LOGIN</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
-<body>
-    
+
+<body style="background-image:url('images/demo/backgrounds/bg2.png');">
+    <!-- Top Background Image Wrapper -->
+
     <div class="header">
-        <h2>เข้าสู่ระบบ</h2>
+        <h2 color="red">เข้าสู่ระบบ</h2>
         </div>
     <form method="post" action="login.php">
           <!-- display validation errors here-->
@@ -32,6 +37,6 @@
             ยังไม่เป็นสมาชิก ? <a href="register.php">สมัครสมาชิก</a>
         </p>
     </form>
-    
+
 </body>
 </html>

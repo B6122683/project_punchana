@@ -1,6 +1,6 @@
 <?php include('server.php'); ?>
 <!DOCTYPE html>
-<html style="background-color:black;">
+<html style="background-image:url('images/demo/backgrounds/bg5.png');">
 <head>
     <title>USER LOGIN</title>
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
 </head>
 
 
-<body style="background-image:url('images/demo/backgrounds/bg2.png');">
+<body>
     <!-- Top Background Image Wrapper -->
 
     <div class="header">

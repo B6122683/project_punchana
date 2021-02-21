@@ -1,6 +1,6 @@
 <?php include('server.php'); ?>
 <!DOCTYPE html>
-<html>
+<html style="background-image:url('images/demo/backgrounds/bg5.png');">
 <head>
     <title>USER REGISTRATION</title>
     <link rel="stylesheet" type="text/css" href="style.css">

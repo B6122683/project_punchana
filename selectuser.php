@@ -11,7 +11,7 @@
                      <th width="40%">Username</th>  
                      <th width="40%">Phone</th> 
                      <th width="40%">Email</th>  
-                     <th width="10%">Delete</th>  
+                  
                 </tr>';  
  if(mysqli_num_rows($result) > 0)  
  {  
@@ -20,21 +20,19 @@
            $output .= '  
                 <tr>  
                      <td>'.$row["id"].'</td>  
-                     <td class="first_name" data-id1="'.$row["id"].'" contenteditable>'.$row["username"].'</td>  
-                     <td class="phone" data-id2="'.$row["id"].'" contenteditable>'.$row["phone"].'</td> 
-                     <td class="email" data-id3="'.$row["id"].'" contenteditable>'.$row["email"].'</td>  
-                     <td><button type="button" name="delete_btn" data-id4="'.$row["id"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
-                </tr>  
+                     <td class="first_name" data-id1="'.$row["id"].'" >'.$row["username"].'</td>  
+                     <td class="phone" data-id2="'.$row["id"].'" >'.$row["phone"].'</td> 
+                     <td class="email" data-id3="'.$row["id"].'" >'.$row["email"].'</td>  
+                     
            ';  
       }  
       $output .= '  
            <tr>  
                 <td></td>  
-                <td id="username" contenteditable></td>  
-                <td id="phone" contenteditable></td>  
-                <td id="email" contenteditable></td>  
-                <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>  
-           </tr>  
+                <td id="username" ></td>  
+                <td id="phone" ></td>  
+                <td id="email" ></td>  
+                
       ';  
  }  
  else  

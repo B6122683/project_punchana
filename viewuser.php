@@ -94,7 +94,7 @@
            {  
                 $.ajax({  
                      url:"deleteuser.php",  
-                     method:"POST",  
+                     method:"GET",  
                      data:{id:id},  
                      dataType:"text",  
                      success:function(data){  

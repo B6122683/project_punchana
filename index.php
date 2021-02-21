@@ -63,25 +63,25 @@
     </div>
     <ul class="nospace group services">
       <li class="one_quarter first">
-        <article><a href="#"><i class="fa fa-3x fa-child"></i></a>
+        <article><a href="child.php"><i class="fa fa-3x fa-child"></i></a>
           <h6 class="heading font-x1"><a href="#">เด็ก</a></h6>
           <p>ร่วมเป็นส่วนหนึ่งของการช่วยเหลือเด็กๆ ให้มีอยู่ในสังคมได้อย่างปลอดภัย</p>
         </article>
       </li>
       <li class="one_quarter">
-        <article><a href="#"><i class="fa fa-3x fa-wheelchair"></i></a>
+        <article><a href="wheelchair.php"><i class="fa fa-3x fa-wheelchair"></i></a>
           <h6 class="heading font-x1"><a href="#">ผู้สูงอายุ</a></h6>
           <p>ผู้สูงอายุที่ด้อยโอกาส ได้รับการพัฒนาคุณภาพชีวิต จากชุมชนและสังคมอย่างยั่งยืน</p>
         </article>
       </li>
       <li class="one_quarter">
-        <article><a href="#"><i class="fa fa-3x fa-paw"></i></a>
+        <article><a href="animal.php"><i class="fa fa-3x fa-paw"></i></a>
           <h6 class="heading font-x1"><a href="#">สัตว์</a></h6>
           <p>เติมรัก ต่อชีวิต ปันความสุขแก่สัตว์ให้มีคุณภาพชีวิตที่ดีกว่าเดิม</p>
         </article>
       </li>
       <li class="one_quarter">
-        <article><a href="#"><i class="fa fa-3x fa-globe"></i></a>
+        <article><a href="globe.php"><i class="fa fa-3x fa-globe"></i></a>
           <h6 class="heading font-x1"><a href="#">สิ่งแวดล้อม</a></h6>
           <p>สนับสนุนให้สามารถรักษาทรัพยากรธรรมชาติและสิ่งแวดล้อมได้อย่างยั่งยืน</p>
         </article>
@@ -113,9 +113,10 @@
            <table class="table table-borderless">  
                 <tr>  
                     
-                     <th width="40%">First Name</th>  
-                     <th width="40%">Last Name</th>  
-                     
+                     <th width="40%">โครงการ</th>  
+                     <th width="30%">รูปภาพ</th>  
+                     <th width="40%">รายละเอียด</th>  
+                     <th width="30%"></th>  
                 </tr>';  
  if(mysqli_num_rows($result) > 0)  
  {  
@@ -125,16 +126,18 @@
                 <tr>  
                     
                      <td class="name_proj" data-id1="'.$row["id"].'" >'.$row["name_proj"].'</td>  
-                     <td class="description" data-id2="'.$row["id"].'" >'.$row["description"].'</td>  
-                   
+                     <td class="img" data-id2="'.$row["id"].'" ><img src="img/'.$row["img"].'"style="width:300px;"></td>  
+                     <td class="description" data-id3="'.$row["id"].'" >'.$row["description"].'</td>  
+                     <td ><button type="button" name="btn_add" data-id4="'.$row["id"].'"  class="btn btn-xs btn-success" style="width:100px;">ร่วมบริจาค</button></td> 
                 </tr>  
            ';  
       }  
       $output .= '  
            <tr>  
                
-                <td id="name_proj" contenteditable></td>  
-                <td id="description" contenteditable></td>  
+                <td id="name_proj"></td>  
+                <td id="img"></td>  
+                <td id="description"></td>  
                
            </tr>  
       ';  
@@ -216,6 +219,7 @@
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
 <script src="layout/scripts/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

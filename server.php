@@ -62,7 +62,7 @@
 			if ($_SESSION["user_type"] == "admin") {
 				//$_SESSION['username'] = $username;
 				$_SESSION['success']  = "You are now logged in";
-				header("location: index.php");		  
+				header("location: dashboard.php");		  
 			}
             if ($_SESSION["user_type"] == "user") {
 				//$_SESSION['username'] = $username;

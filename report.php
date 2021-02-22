@@ -25,8 +25,7 @@
       <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li><a href="dashboard.php">หน้าหลัก</a></li>
-          <li><a href="user.php">ข้อมูลผู้บริจาค</a></li>
-          <li><a href="admin.php">ข้อมูลแอดมิน</a></li>
+          <li><a href="user.php">ข้อมูลสมาชิก</a></li>
           <li><a href="report.php">รายงาน</a></li>
           <li><a href="logout.php">ออกจากระบบ</a></li>
         </ul>
@@ -118,9 +117,8 @@
       <p class="btmspace-50">มาร่วมมือกันสร้างผลกระทบทางสังคมอันยิ่งใหญ่ ส่งต่อความช่วยเหลือกว้างไกลทั่วประเทศผ่านเว็บไซต์ปันชนะ</p>
       <nav>
         <ul class="nospace">
-          <li><a href="index.html"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="user.php">ข้อมูลผู้บริจาค</a></li>
-          <li><a href="admin.php">ข้อมูลแอดมิน</a></li>
+          <li><a href="dashboard.php"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="user.php">ข้อมูลสมาชิก</a></li>
           <li><a href="report.php">รายงาน</a></li>
           
         </ul>

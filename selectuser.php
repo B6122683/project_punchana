@@ -7,10 +7,10 @@
       <div class="table-responsive">  
            <table class="table table-striped table-hover">  
                 <tr>  
-                     <th width="10%">Id</th>  
-                     <th width="40%">Username</th>  
-                     <th width="40%">Phone</th> 
-                     <th width="40%">Email</th>  
+                     <th width="10%">รหัสสมาชิก</th>  
+                     <th width="40%">ชื่อสมาชิก</th>  
+                     <th width="40%">โทรศัพท์</th> 
+                     <th width="40%">อีเมล</th>  
                   
                 </tr>';  
  if(mysqli_num_rows($result) > 0)  

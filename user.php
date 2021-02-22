@@ -25,8 +25,7 @@
       <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li><a href="dashboard.php">หน้าหลัก</a></li>
-          <li><a href="user.php">ข้อมูลผู้บริจาค</a></li>
-          <li><a href="admin.php">ข้อมูลแอดมิน</a></li>
+          <li><a href="user.php">ข้อมูลสมาชิก</a></li>
           <li><a href="report.php">รายงาน</a></li>
           <li><a href="logout.php">ออกจากระบบ</a></li>
         </ul>
@@ -50,56 +49,7 @@
       <h6 class="heading">ข้อมูลผู้บริจาค</h6>
      
     </div>
-
-    <?php  
- $connect = mysqli_connect("localhost", "root", "", "punchana");  
- $output = '';  
- $sql = "SELECT * FROM project ORDER BY id ASC";  
- $result = mysqli_query($connect, $sql);  
- $output .= '  
-      <div class="table-responsive">  
-           <table class="table table-borderless">  
-                <tr>  
-                    
-                     <th width="40%">โครงการ</th>  
-                     <th width="30%">รูปภาพ</th>  
-                     <th width="40%">รายละเอียด</th>  
-                     <th width="30%"></th>  
-                </tr>';  
- if(mysqli_num_rows($result) > 0)  
- {  
-      while($row = mysqli_fetch_array($result))  
-      {  
-           $output .= '  
-                <tr>  
-                    
-                     <td class="name_proj" data-id1="'.$row["id"].'" >'.$row["name_proj"].'</td>  
-                     <td class="img" data-id2="'.$row["id"].'" ><img src="img/'.$row["img"].'"style="width:300px;"></td>  
-                     <td class="description" data-id3="'.$row["id"].'" >'.$row["description"].'</td>  
-                     <td ><button type="button" name="btn_add" data-id4="'.$row["id"].'"  class="btn btn-xs btn-success" style="width:100px;">ร่วมบริจาค</button></td> 
-                </tr>  
-           ';  
-      }  
-      $output .= '  
-           <tr>  
-               
-                <td id="name_proj"></td>  
-                <td id="img"></td>  
-                <td id="description"></td>  
-               
-           </tr>  
-      ';  
- }  
- else  
- {  
-      $output .= '<tr>  
-                          <td colspan="4">Data not Found</td>  
-                     </tr>';  
- }  
- $output .= '</table>  
-      </div>';  
- echo $output;  
- ?>
+    <div id="live_data"></div> 
     
     <!-- ################################################################################################ -->
     <!-- / main body -->
@@ -118,9 +68,8 @@
       <p class="btmspace-50">มาร่วมมือกันสร้างผลกระทบทางสังคมอันยิ่งใหญ่ ส่งต่อความช่วยเหลือกว้างไกลทั่วประเทศผ่านเว็บไซต์ปันชนะ</p>
       <nav>
         <ul class="nospace">
-          <li><a href="index.html"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="user.php">ข้อมูลผู้บริจาค</a></li>
-          <li><a href="admin.php">ข้อมูลแอดมิน</a></li>
+          <li><a href="dashboard.php.html"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="user.php">ข้อมูลสมาชิก</a></li>
           <li><a href="report.php">รายงาน</a></li>
           
         </ul>
@@ -174,3 +123,94 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+<script>  
+ $(document).ready(function(){  
+      function fetch_data()  
+      {  
+           $.ajax({  
+                url:"selectuser.php",  
+                method:"POST",  
+                success:function(data){  
+                     $('#live_data').html(data);  
+                }  
+           });  
+      }  
+      fetch_data();  
+      $(document).on('click', '#btn_add', function(){  
+           var username = $('#username').text();  
+           var phone = $('#phone').text();  
+           var email = $('#email').text(); 
+           if(username == '')  
+           {  
+                alert("Enter UserName");  
+                return false;  
+           }  
+           if(phone == '')  
+           {  
+                alert("Enter Phone");  
+                return false;  
+           } 
+           if(email == '')  
+           {  
+                alert("Enter Email");  
+                return false;  
+           }  
+           $.ajax({  
+                url:"insertuser.php",  
+                method:"POST",  
+                data:{username:username, phone:phone, email:email},  
+                dataType:"text",  
+                success:function(data)  
+                {  
+                     alert(data);  
+                     fetch_data();  
+                }  
+           })  
+      });  
+      function edit_data(id, text, column_name)  
+      {  
+           $.ajax({  
+                url:"edituser.php",  
+                method:"POST",  
+                data:{id:id, text:text, column_name:column_name},  
+                dataType:"text",  
+                success:function(data){  
+                     alert(data);  
+                }  
+           });  
+      }  
+      $(document).on('blur', '.username', function(){  
+           var id = $(this).data("id1");  
+           var username = $(this).text();  
+           edit_data(id, username, "username");  
+      });  
+      $(document).on('blur', '.phone', function(){  
+           var id = $(this).data("id2");  
+           var phone = $(this).text();  
+           edit_data(id,phone, "phone");  
+      });
+      $(document).on('blur', '.email', function(){  
+           var id = $(this).data("id3");  
+           var email = $(this).text();  
+           edit_data(id,email, "email");  
+      });   
+      $(document).on('click', '.btn_delete', function(){  
+           var id=$(this).data("id4");  
+           if(confirm("Are you sure you want to delete this?"))  
+           {  
+                $.ajax({  
+                     url:"deleteuser.php",  
+                     method:"POST",  
+                     data:{id:id},  
+                     dataType:"text",  
+                     success:function(data){  
+                          alert(data);  
+                          fetch_data();  
+                     }  
+                });  
+           }  
+      });  
+ });  
+ </script>

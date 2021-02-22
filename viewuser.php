@@ -17,6 +17,7 @@
            </div>  
       </body>  
  </html>  
+ 
  <script>  
  $(document).ready(function(){  
       function fetch_data()  

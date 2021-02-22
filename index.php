@@ -104,7 +104,7 @@
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <h6 class="heading">โครงการสำหรับเด็ก</h6>
+      <h6 class="heading">โครงการทั้งหมด</h6>
       <p>ร่วมเป็นส่วนหนึ่งของการช่วยเหลือเด็กๆ ให้มีอยู่ในสังคมได้อย่างปลอดภัย</p>
     </div>
 
@@ -112,63 +112,11 @@
 <div class="form-group">
     <div class="input-group">
      <span class="input-group-addon">Search</span>
-     <input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
+     <input type="text" name="search_text" id="search_text" placeholder="พิมพ์ข้อความค้นหาที่นี่" class="form-control" />
     </div>
    </div>
    <br />
    <div id="result"></div>
-
-
-    <?php  
- $connect = mysqli_connect("localhost", "root", "", "punchana");  
- $output = '';  
- $sql = "SELECT * FROM project ORDER BY id ASC";  
- $result = mysqli_query($connect, $sql);  
- $output .= '  
-      <div class="table-responsive">  
-           <table class="table table-borderless">  
-                <tr>  
-                    
-                     <th width="40%">โครงการ</th>  
-                     <th width="30%">รูปภาพ</th>  
-                     <th width="40%">รายละเอียด</th>  
-                     <th width="30%"></th>  
-                </tr>';  
- if(mysqli_num_rows($result) > 0)  
- {  
-      while($row = mysqli_fetch_array($result))  
-      {  
-           $output .= '  
-                <tr>  
-                    
-                     <td class="name_proj" data-id1="'.$row["id"].'" >'.$row["name_proj"].'</td>  
-                     <td class="img" data-id2="'.$row["id"].'" ><img src="img/'.$row["img"].'"style="width:300px;"></td>  
-                     <td class="description" data-id3="'.$row["id"].'" >'.$row["description"].'</td>  
-                     <td ><button type="button" name="btn_add" data-id4="'.$row["id"].'"  class="btn btn-xs btn-success" style="width:100px;">ร่วมบริจาค</button></td> 
-                </tr>  
-           ';  
-      }  
-      $output .= '  
-           <tr>  
-               
-                <td id="name_proj"></td>  
-                <td id="img"></td>  
-                <td id="description"></td>  
-               
-           </tr>  
-      ';  
- }  
- else  
- {  
-      $output .= '<tr>  
-                          <td colspan="4">Data not Found</td>  
-                     </tr>';  
- }  
- $output .= '</table>  
-      </div>';  
- echo $output;  
- ?>
-    
     <!-- ################################################################################################ -->
     <!-- / main body -->
     <div class="clear"></div>

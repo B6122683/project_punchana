@@ -21,12 +21,12 @@
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
 
-        <h1><img src="images/logo4.png" alt="" ><a href="index.html">PunChaNa</a></h1>
+        <h1><img src="images/logo4.png" alt="" ><a href="index.php">PunChaNa</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">
-          <li><a href="../index.html">หน้าหลัก</a></li>
-          <li><a href="#">ส่งโครงการ</a></li>
+          <li><a href="index.php">หน้าหลัก</a></li>
+          <li><a href="submission.html">ส่งโครงการ</a></li>
           <li><a href="#">รายงาน</a></li>
           <li><a href="#">ติดต่อเรา</a></li>
           <li><a href="login.php">เข้าสู่ระบบ</a></li>
@@ -100,8 +100,8 @@
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <h6 class="heading">โครงการสำหรับเด็ก</h6>
-      <p>ร่วมเป็นส่วนหนึ่งของการช่วยเหลือเด็กๆ ให้มีอยู่ในสังคมได้อย่างปลอดภัย</p>
+      <h6 class="heading">โครงการสำหรับสัตว์</h6>
+      <p>เติมรัก ต่อชีวิต ปันความสุขแก่สัตว์ให้มีคุณภาพชีวิตที่ดีกว่าเดิม</p>
     </div>
 
     <?php  

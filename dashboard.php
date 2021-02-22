@@ -194,7 +194,7 @@
       });	  
       $(document).on('click', '.btn_delete', function(){  
            var id=$(this).data("id9");  
-           if(confirm("Are you sure you want to delete this?"))  
+           if(confirm("คุณต้องการลบใช่หรือไม่?"))  
            {  
                 $.ajax({  
                      url:"deleteproject.php",  

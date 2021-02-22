@@ -20,7 +20,7 @@
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
 
-        <h1><img src="images/logo4.png" alt="" ><a href="index.php">PunChaNa</a></h1>
+        <h1><img src="images/logo4.png" alt="" ><a href="dashboard.php">PunChaNa</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">

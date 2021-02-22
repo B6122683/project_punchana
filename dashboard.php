@@ -20,7 +20,7 @@
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
 
-        <h1><img src="images/logo4.png" alt="" ><a href="index.php">PunChaNa</a></h1>
+        <h1><img src="images/logo4.png" alt="" ><a href="dashboard.php">PunChaNa</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">
@@ -48,8 +48,9 @@
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
       <h6 class="heading">โครงการทั้งหมดของปันชนะ</h6>
-      <div id="live_data"></div>  
+     
     </div>
+    <div  id="live_data" ></div>  
     <!-- ################################################################################################ -->
     <!-- / main body -->
     <div class="clear"></div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-<title>ปันชนะ</title>
+<title>ข้อมูลผู้บริจาค</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -20,21 +20,24 @@
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
 
-        <h1><img src="images/logo4.png" alt="" ><a href="index.html">PunChaNa</a></h1>
+        <h1><img src="images/logo4.png" alt="" ><a href="index.php">PunChaNa</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">
-          <li><a href="home.php">หน้าหลัก</a></li>
-          <li><a href="project.php">ส่งโครงการ</a></li>
-          <li><a href="contact.html">ติดต่อเรา</a></li>
+          <li><a href="dashboard.php">หน้าหลัก</a></li>
+          <li><a href="user.php">ข้อมูลผู้บริจาค</a></li>
+          <li><a href="admin.php">ข้อมูลแอดมิน</a></li>
+          <li><a href="report.php">รายงาน</a></li>
           <li><a href="logout.php">ออกจากระบบ</a></li>
         </ul>
       </nav>
       <!-- ################################################################################################ -->
     </header>
   </div>
-  <!-- ################################################################################################ -->
   
+  <!-- ################################################################################################ -->
+
+  <!-- ################################################################################################ -->
 </div>
 <!-- End Top Background Image Wrapper -->
 
@@ -44,31 +47,59 @@
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <h3 class="heading">ติดต่อเรา</h3>
-      <p>หากท่านมีปัญหาหรือพบข้อสงสัยติดต่อเราได้ที่รายละเอียดด้านล่าง</p>
-      <br><br>
-      <p>
-        <h1>B6122591 นางสาวภัสรา เคียนตะนนท์</h1><br>
-        <h1>เบอร์โทร :  </h1><br>
-        <br><br>
-        <h1>B6122683 นางสาวศิริพร โสมขุนทด</h1><br>
-        <h1>เบอร์โทร :  </h1><br>
-        <br><br>
-        <h1>B6122775 นางสาวศิรินภา ทางธรรม</h1><br>
-        <h1>เบอร์โทร :  </h1><br>
-        <br><br>
-        <h1>B6122966 นางสาวณัฏฐา พิพิธ</h1><br>
-        <h1>เบอร์โทร : 092-6727224 </h1><br>
-        <br><br>
-        <h1>B6134143 นายกฤษณพงศ์ ค้าขาย</h1><br>
-        <h1>เบอร์โทร :  </h1><br>
-        <br><br>
-        <h1>B6134174 นายภาณุวิชญ์ ปัณฑวังกูร</h1><br>
-        <h1>เบอร์โทร :  </h1><br>
-        <br><br>
-      </p>
-      
+      <h6 class="heading">ข้อมูลผู้บริจาค</h6>
+     
     </div>
+
+    <?php  
+ $connect = mysqli_connect("localhost", "root", "", "punchana");  
+ $output = '';  
+ $sql = "SELECT * FROM project ORDER BY id ASC";  
+ $result = mysqli_query($connect, $sql);  
+ $output .= '  
+      <div class="table-responsive">  
+           <table class="table table-borderless">  
+                <tr>  
+                    
+                     <th width="40%">โครงการ</th>  
+                     <th width="30%">รูปภาพ</th>  
+                     <th width="40%">รายละเอียด</th>  
+                     <th width="30%"></th>  
+                </tr>';  
+ if(mysqli_num_rows($result) > 0)  
+ {  
+      while($row = mysqli_fetch_array($result))  
+      {  
+           $output .= '  
+                <tr>  
+                    
+                     <td class="name_proj" data-id1="'.$row["id"].'" >'.$row["name_proj"].'</td>  
+                     <td class="img" data-id2="'.$row["id"].'" ><img src="img/'.$row["img"].'"style="width:300px;"></td>  
+                     <td class="description" data-id3="'.$row["id"].'" >'.$row["description"].'</td>  
+                     <td ><button type="button" name="btn_add" data-id4="'.$row["id"].'"  class="btn btn-xs btn-success" style="width:100px;">ร่วมบริจาค</button></td> 
+                </tr>  
+           ';  
+      }  
+      $output .= '  
+           <tr>  
+               
+                <td id="name_proj"></td>  
+                <td id="img"></td>  
+                <td id="description"></td>  
+               
+           </tr>  
+      ';  
+ }  
+ else  
+ {  
+      $output .= '<tr>  
+                          <td colspan="4">Data not Found</td>  
+                     </tr>';  
+ }  
+ $output .= '</table>  
+      </div>';  
+ echo $output;  
+ ?>
     
     <!-- ################################################################################################ -->
     <!-- / main body -->
@@ -87,10 +118,10 @@
       <p class="btmspace-50">มาร่วมมือกันสร้างผลกระทบทางสังคมอันยิ่งใหญ่ ส่งต่อความช่วยเหลือกว้างไกลทั่วประเทศผ่านเว็บไซต์ปันชนะ</p>
       <nav>
         <ul class="nospace">
-          <li><a href="home.html"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="project.php">ส่งโครงการ</a></li>
-          <li><a href="contact.html">ติดต่อเรา</a></li>
-       
+          <li><a href="index.html"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="user.php">ข้อมูลผู้บริจาค</a></li>
+          <li><a href="admin.php">ข้อมูลแอดมิน</a></li>
+          <li><a href="report.php">รายงาน</a></li>
           
         </ul>
       </nav>
@@ -126,7 +157,7 @@
 <div class="wrapper row5">
   <div id="copyright" class="hoc clear"> 
     <!-- ################################################################################################ -->
-    <p class="fl_left">Copyright &copy; 2021 - All Rights Reserved - <a href="#">PunChaNa</a></p>
+    <p class="fl_left">Copyright &copy; 2021 - All Rights Reserved - <a href="dashboard.php">PunChaNa</a></p>
     <p class="fl_right">PunChaNa by Groups 3</a></p>
     <!-- ################################################################################################ -->
   </div>

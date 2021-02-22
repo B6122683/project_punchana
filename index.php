@@ -1,3 +1,4 @@
+<?php include('server.php'); ?>
 <!DOCTYPE html>
 <html lang="">
 <head>
@@ -32,7 +33,6 @@
       <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li><a href="index.php">หน้าหลัก</a></li>
-          <li><a href="#">ส่งโครงการ</a></li>
           <li><a href="contact.html">ติดต่อเรา</a></li>
           <li><a href="login.php">เข้าสู่ระบบ</a></li>
           <li><a href="register.php">สมัครสมาชิก</a></li>
@@ -59,6 +59,9 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
+
+
+
 <div class="wrapper row2">
   <section class="hoc container clear"> 
     <!-- ################################################################################################ -->
@@ -66,27 +69,28 @@
       <h6 class="heading">โครงการปันชนะ</h6>
       <p> - สุขทั้งใจทั้งผู้ให้และผู้รับ -</p>
     </div>
+ 
     <ul class="nospace group services">
       <li class="one_quarter first">
-        <article><a href="child.php"><i class="fa fa-3x fa-child"></i></a>
+        <article><?php echo '<a href="child.php?type_id=2">' ?><i class="fa fa-3x fa-child"></i></a>
           <h6 class="heading font-x1"><a href="#">เด็ก</a></h6>
           <p>ร่วมเป็นส่วนหนึ่งของการช่วยเหลือเด็กๆ ให้มีอยู่ในสังคมได้อย่างปลอดภัย</p>
         </article>
       </li>
       <li class="one_quarter">
-        <article><a href="wheelchair.php"><i class="fa fa-3x fa-wheelchair"></i></a>
+        <article><?php echo '<a href="wheelchair.php?type_id=3">' ?><i class="fa fa-3x fa-wheelchair"></i></a>
           <h6 class="heading font-x1"><a href="#">ผู้สูงอายุ</a></h6>
           <p>ผู้สูงอายุที่ด้อยโอกาส ได้รับการพัฒนาคุณภาพชีวิต จากชุมชนและสังคมอย่างยั่งยืน</p>
         </article>
       </li>
       <li class="one_quarter">
-        <article><a href="animal.php"><i class="fa fa-3x fa-paw"></i></a>
+        <article><?php echo '<a href="animal.php?type_id=1">' ?><i class="fa fa-3x fa-paw"></i></a>
           <h6 class="heading font-x1"><a href="#">สัตว์</a></h6>
           <p>เติมรัก ต่อชีวิต ปันความสุขแก่สัตว์ให้มีคุณภาพชีวิตที่ดีกว่าเดิม</p>
         </article>
       </li>
       <li class="one_quarter">
-        <article><a href="globe.php"><i class="fa fa-3x fa-globe"></i></a>
+        <article><?php echo '<a href="globe.php?type_id=4">' ?><i class="fa fa-3x fa-globe"></i></a>
           <h6 class="heading font-x1"><a href="#">สิ่งแวดล้อม</a></h6>
           <p>สนับสนุนให้สามารถรักษาทรัพยากรธรรมชาติและสิ่งแวดล้อมได้อย่างยั่งยืน</p>
         </article>
@@ -96,6 +100,8 @@
     <div class="clear"></div>
   </section>
 </div>
+
+
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->

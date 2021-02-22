@@ -22,10 +22,10 @@ $name_m = $_POST['name_manage'];
 $phone = $_POST['phone_proj'];
 $email = $_POST['email_proj'];
 $add = $_POST['address'];
-$img = $_POST['img];
+$img = $_POST['img'];
 } else exit("คุณยังกรอกข้อมูลไม่ครบ!");
 $sql="insert into project(name_proj, type_id, description,date, name_manage, phone_proj, email_proj, address, img)
- values('$name_j','$$type_j','$des','$date','$name_m','$phone ','$email','$add','$img')";
+ values('$name_j','$type_j','$des','$date','$name_m','$phone ','$email','$add','$img')";
 $rs=$conn->query($sql);
 echo "Insertion Successfully!!";
 $conn->close();

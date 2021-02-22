@@ -138,69 +138,7 @@
                      $('#live_data').html(data);  
                 }  
            });  
-      }  
-      fetch_data();  
-      $(document).on('click', '#btn_add', function(){  
-           var name_proj = $('#name_proj').text();  
-           var type_id = $('#type_id').text();  
-		   var description = $('#description').text();  
-           var date = $('#date').text(); 
-		   var name_manage = $('#name_manage').text();  
-           var phone_proj = $('#phone_proj').text(); 
-		   var email_proj = $('#email_proj').text();  
-           var address = $('#address').text(); 
-           if(name_proj == '')  
-           {  
-                alert("กรุณากรอกชื่อโครงการ");  
-                return false;  
-           }  
-           if(type_id == '')  
-           {  
-                alert("กรุณากรอกประเภทโครงการ");  
-                return false;  
-           } 
-		if(description == '')  
-           {  
-                alert("กรุณากรอกคำอธิบาย");  
-                return false;  
-           }  
-           if(date == '')  
-           {  
-                alert("กรุณากรอกวัน-เวลา ทำการ");  
-                return false;  
-           }  
-		if(name_manage == '')  
-           {  
-                alert("กรุณากรอกชื่อผู้รับผิดชอบโครงการ");  
-                return false;  
-           }  
-           if(phone_proj == '')  
-           {  
-                alert("กรุณากรอกหมายเลขโทรศัพท์");  
-                return false;  
-           }  
-			if(email_proj == '')  
-           {  
-                alert("กรุณากรอกอีเมล");  
-                return false;  
-           }  
-           if(address == '')  
-           {  
-                alert("กรุณากรอกที่อยู่");  
-                return false;  
-           }  		   
-           $.ajax({  
-                url:"insertproject.php",  
-                method:"POST",  
-                data:{name_proj:name_proj, type_id:type_id, description:description, date:date, name_manage:name_manage, phone_proj:phone_proj, email_proj:email_proj,address:address},  
-                dataType:"text",  
-                success:function(data)  
-                {  
-                     alert(data);  
-                     fetch_data();  
-                }  
-           })  
-      });  
+      }
       function edit_data(id, text, column_name)  
       {  
            $.ajax({  

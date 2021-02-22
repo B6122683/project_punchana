@@ -138,7 +138,8 @@
                      $('#live_data').html(data);  
                 }  
            });  
-      }
+      }  
+      fetch_data();    
       function edit_data(id, text, column_name)  
       {  
            $.ajax({  

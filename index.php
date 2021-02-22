@@ -33,7 +33,7 @@
       <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li><a href="index.php">หน้าหลัก</a></li>
-          <li><a href="contact.html">ติดต่อเรา</a></li>
+          <li><a href="contact2.html">ติดต่อเรา</a></li>
           <li><a href="login.php">เข้าสู่ระบบ</a></li>
           <li><a href="register.php">สมัครสมาชิก</a></li>
         </ul>

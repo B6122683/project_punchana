@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	 <link rel="stylesheet" type="text/css" href="formcss.css">
+</head>
+<body>
+	
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				
+				<div class="multistep-container">
+					
+					<div class="mutistep-form-area">
+						
+						<!--  -->
+								<div class="form-box">
+
+								<!--  -->
+									<ul class="active-button">
+										<li class="active">
+											<span class="round-btn">1</span>
+										</li>
+										<li>
+											<span class="round-btn">2</span>
+										</li>
+										<li>
+											<span class="round-btn">3</span>
+										</li>
+									</ul>
+								<!--  -->
+
+
+										<h4>แบบฟอร์มโครงการ</h4>
+										<form action="insertform.php">
+											
+											<div class="form-group">
+												<label for="">ชื่อโครงการ</label>
+												<input type="text" name="name_proj" placeholder="โครงการ" id="name_proj" class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label for="">รายละเอียด</label>
+												<input type="text" name="description" placeholder="ราละเอียด" id="description" class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label for="">วัน-เวลาทำการ</label>
+												<input type="text" name="date" placeholder="วัน-เวลาทำการ" id="date" class="form-control" required>
+											</div>
+
+											<div class="form-group">
+												<label for="">ประเภทโครงการ</label>
+												<select class="custom-select myinput" name="type_id" id="type_id">
+                                                    <option value="1">สัตว์</option>
+                                                    <option value="2">เด็ก</option>
+													<option value="3">ผู้สูงอายุ</option>
+													<option value="4">สิ่งแวดล้อม</option>
+                                                </select>
+											</div>
+				
+											<div class="button-row">
+												<input type="button" value="ถัดไป" class="next">
+											</div>
+											
+										</form>
+
+								</div>
+								<!--  -->
+
+								<!--  -->
+								<div class="form-box">
+
+								<!--  -->
+									<ul class="active-button">
+										<li class="active">
+											<span class="round-btn">1</span>
+										</li>
+										<li class="active">
+											<span class="round-btn">2</span>
+										</li>
+										<li>
+											<span class="round-btn">3</span>
+										</li>
+									</ul>
+								<!--  -->
+
+										<h4>ช่องทางการติดต่อ</h4>
+										<form action="insertform.php">
+											<div class="form-group">
+												<label for="">ชื่อผู้รับผิดชอบโครงการ</label>
+												<input type="text" name="name_manage" placeholder="ชื่อผู้รับผิดชอบโครงการ" id="name_manage" class="form-control" required>
+											</div>
+													<div class="form-group">
+												<label for="">หมายเลขโทรศัพท์</label>
+												<input type="text" name="phone_proj" placeholder="หมายเลขโทรศัพท์" id="phone_proj" class="form-control" required>
+											</div>
+												<div class="form-group">
+												<label for="">อีเมล</label>
+												<input type="text" name="email_proj" placeholder="อีเมล" id="email_proj" class="form-control" required>
+											</div>
+											<div class="button-row">
+												<input type="button" value="ก่อนหน้า" class="previous">
+												<input type="button" value="ถัดไป" class="next">
+											</div>
+											
+										</form>
+
+								</div>
+								<!--  -->
+
+								<!--  -->
+								<div class="form-box">
+
+
+								<!--  -->
+									<ul class="active-button">
+										<li class="active">
+											<span class="round-btn">1</span>
+										</li>
+										<li class="active">
+											<span class="round-btn">2</span>
+										</li>
+										<li class="active">
+											<span class="round-btn">3</span>
+										</li>
+									</ul>
+								<!--  -->
+
+										<h4>อัปโหลดรูปภาพ</h4>
+										<form action="insertform.php">
+											
+
+											<div class="form-group">
+												<label for="">อัปโหลดรูปภาพ</label>
+												<input type="text" name="img" placeholder="อัปโหลดรูปภาพ" id="img" class="form-control">
+											</div>
+											<div class="button-row">
+												<input type="button" value="ก่อนหน้า" class="previous">
+												<input type="submit" value="บันทึก" class="submit">
+											</div>
+											
+										</form>
+
+								</div>
+								<!--  -->
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script src="code.js"></script>
+   
+</body>
+</html>

@@ -3,6 +3,6 @@
  $sql = "DELETE FROM project WHERE id = '".$_POST["id"]."'";  
  if(mysqli_query($connect, $sql))  
  {  
-      echo 'Data Deleted';  
+      echo 'ลบข้อมูลสำเร็จ';  
  }  
  ?>

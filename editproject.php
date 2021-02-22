@@ -6,6 +6,6 @@
  $sql = "UPDATE project SET ".$column_name."='".$text."' WHERE id='".$id."'";  
  if(mysqli_query($connect, $sql))  
  {  
-      echo 'Data Updated';  
+      echo 'แก้ไขข้อมูลสำเร็จ';  
  }  
  ?>

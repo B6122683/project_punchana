@@ -25,7 +25,7 @@
       <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li><a href="dashboard.php">หน้าหลัก</a></li>
-          <li><a href="user.php">ข้อมูลผู้บริจาค</a></li>
+          <li><a href="user.php">ข้อมูลสมาชิก</a></li>
           <li><a href="report.php">รายงาน</a></li>
           <li><a href="logout.php">ออกจากระบบ</a></li>
         </ul>

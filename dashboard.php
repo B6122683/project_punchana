@@ -180,15 +180,15 @@
            var phone_proj = $(this).text();  
            edit_data(id,phone_proj, "phone_proj");  
       });
-	$(document).on('blur', '.email_proj', function(){  
+	$(document).on('blur', '.address', function(){  
            var id = $(this).data("id7");  
-           var email_proj = $(this).text();  
-           edit_data(id, email_proj, "email_proj");  
-      });  
-      $(document).on('blur', '.address', function(){  
-           var id = $(this).data("id8");  
            var address = $(this).text();  
-           edit_data(id,address, "address");  
+           edit_data(id, address, "address");  
+      });  
+      $(document).on('blur', '.banking', function(){  
+           var id = $(this).data("id8");  
+           var banking = $(this).text();  
+           edit_data(id,banking, "banking");  
       });	  
       $(document).on('click', '.btn_delete', function(){  
            var id=$(this).data("id9");  

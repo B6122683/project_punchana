@@ -46,7 +46,7 @@
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <h6 class="heading">ข้อมูลผู้บริจาค</h6>
+      <h6 class="heading">ข้อมูลสมาชิกในระบบ</h6>
      
     </div>
     <div id="live_data"></div> 
@@ -68,7 +68,7 @@
       <p class="btmspace-50">มาร่วมมือกันสร้างผลกระทบทางสังคมอันยิ่งใหญ่ ส่งต่อความช่วยเหลือกว้างไกลทั่วประเทศผ่านเว็บไซต์ปันชนะ</p>
       <nav>
         <ul class="nospace">
-          <li><a href="dashboard.php.html"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="dashboard.php"><i class="fa fa-lg fa-home"></i></a></li>
           <li><a href="user.php">ข้อมูลสมาชิก</a></li>
           <li><a href="report.php">รายงาน</a></li>
           
@@ -137,80 +137,6 @@
                 }  
            });  
       }  
-      fetch_data();  
-      $(document).on('click', '#btn_add', function(){  
-           var username = $('#username').text();  
-           var phone = $('#phone').text();  
-           var email = $('#email').text(); 
-           if(username == '')  
-           {  
-                alert("Enter UserName");  
-                return false;  
-           }  
-           if(phone == '')  
-           {  
-                alert("Enter Phone");  
-                return false;  
-           } 
-           if(email == '')  
-           {  
-                alert("Enter Email");  
-                return false;  
-           }  
-           $.ajax({  
-                url:"insertuser.php",  
-                method:"POST",  
-                data:{username:username, phone:phone, email:email},  
-                dataType:"text",  
-                success:function(data)  
-                {  
-                     alert(data);  
-                     fetch_data();  
-                }  
-           })  
-      });  
-      function edit_data(id, text, column_name)  
-      {  
-           $.ajax({  
-                url:"edituser.php",  
-                method:"POST",  
-                data:{id:id, text:text, column_name:column_name},  
-                dataType:"text",  
-                success:function(data){  
-                     alert(data);  
-                }  
-           });  
-      }  
-      $(document).on('blur', '.username', function(){  
-           var id = $(this).data("id1");  
-           var username = $(this).text();  
-           edit_data(id, username, "username");  
-      });  
-      $(document).on('blur', '.phone', function(){  
-           var id = $(this).data("id2");  
-           var phone = $(this).text();  
-           edit_data(id,phone, "phone");  
-      });
-      $(document).on('blur', '.email', function(){  
-           var id = $(this).data("id3");  
-           var email = $(this).text();  
-           edit_data(id,email, "email");  
-      });   
-      $(document).on('click', '.btn_delete', function(){  
-           var id=$(this).data("id4");  
-           if(confirm("Are you sure you want to delete this?"))  
-           {  
-                $.ajax({  
-                     url:"deleteuser.php",  
-                     method:"POST",  
-                     data:{id:id},  
-                     dataType:"text",  
-                     success:function(data){  
-                          alert(data);  
-                          fetch_data();  
-                     }  
-                });  
-           }  
-      });  
+      fetch_data();
  });  
  </script>

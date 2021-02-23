@@ -1,9 +1,17 @@
+<?php include('server.php'); ?>
 <!DOCTYPE html>
 <html lang="">
 <head>
-<title>รายงานโครงการปันชนะ</title>
+<title>ปันชนะ</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
@@ -33,79 +41,51 @@
       <!-- ################################################################################################ -->
     </header>
   </div>
-  
   <!-- ################################################################################################ -->
-
-  <!-- ################################################################################################ -->
-</div>
-<!-- End Top Background Image Wrapper -->
-
-<!-- ################################################################################################ -->
-<div class="wrapper row3">
+  <div class="wrapper row3">
   <main class="hoc container clear"> 
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <h6 class="heading">โครงการทั้งหมดของปันชนะ</h6>
-     
+      <h6 class="heading">ข้อมูลผู้รับผิดชอบโครงการ</h6>
     </div>
+    <div id="id01"></div>
 
-    <?php  
- $connect = mysqli_connect("localhost", "root", "", "punchana");  
- $output = '';  
- $sql = "SELECT * FROM project ORDER BY id ASC";  
- $result = mysqli_query($connect, $sql);  
- $output .= '  
-      <div class="table-responsive">  
-           <table class="table table-borderless">  
-                <tr>  
-                    
-                     <th width="40%">โครงการ</th>  
-                     <th width="30%">รูปภาพ</th>  
-                     <th width="40%">รายละเอียด</th>  
-                     <th width="30%"></th>  
-                </tr>';  
- if(mysqli_num_rows($result) > 0)  
- {  
-      while($row = mysqli_fetch_array($result))  
-      {  
-           $output .= '  
-                <tr>  
-                    
-                     <td class="name_proj" data-id1="'.$row["id"].'" >'.$row["name_proj"].'</td>  
-                     <td class="img" data-id2="'.$row["id"].'" ><img src="img/'.$row["img"].'"style="width:300px;"></td>  
-                     <td class="description" data-id3="'.$row["id"].'" >'.$row["description"].'</td>  
-                     <td ><button type="button" name="btn_add" data-id4="'.$row["id"].'"  class="btn btn-xs btn-success" style="width:100px;">ร่วมบริจาค</button></td> 
-                </tr>  
-           ';  
-      }  
-      $output .= '  
-           <tr>  
-               
-                <td id="name_proj"></td>  
-                <td id="img"></td>  
-                <td id="description"></td>  
-               
-           </tr>  
-      ';  
- }  
- else  
- {  
-      $output .= '<tr>  
-                          <td colspan="4">Data not Found</td>  
-                     </tr>';  
- }  
- $output .= '</table>  
-      </div>';  
- echo $output;  
- ?>
-    
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+      var url = "fetchproject.php";
+
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              myFunction(this.responseText);
+          }
+      }
+      xmlhttp.open("POST", url, true);
+      xmlhttp.send();
+
+      function myFunction(response) {
+          var arr = JSON.parse(response);
+          var i;
+          var out = "<table><tr><th width='200px'>ชื่อโครงการ</th><th width='200px'>ผู้จัดโครงการ</th><th width='50px'>หมายเลขโทรศัพท์</th></tr>";
+
+          for(i = 0; i < arr.length; i++) {
+              out += "<tr><td>" +
+              arr[i].Name +
+              "</td><td>" +
+              arr[i].Manager +
+              "</td><td>" +
+              arr[i].Phone +
+              "</td></tr>";
+          }
+          out += "</table>";
+          document.getElementById("id01").innerHTML = out;
+      }
+    </script>  
     <!-- ################################################################################################ -->
     <!-- / main body -->
     <div class="clear"></div>
   </main>
 </div>
-
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row4 bgded overlay" style="background-image:url('images/demo/backgrounds/02.png');">
@@ -117,9 +97,10 @@
       <p class="btmspace-50">มาร่วมมือกันสร้างผลกระทบทางสังคมอันยิ่งใหญ่ ส่งต่อความช่วยเหลือกว้างไกลทั่วประเทศผ่านเว็บไซต์ปันชนะ</p>
       <nav>
         <ul class="nospace">
-          <li><a href="dashboard.php"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="user.php">ข้อมูลสมาชิก</a></li>
-          <li><a href="report.php">รายงาน</a></li>
+          <li><a href="home.html"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="project.php">ส่งโครงการ</a></li>
+          <li><a href="contact.html">ติดต่อเรา</a></li>
+         
           
         </ul>
       </nav>
@@ -155,7 +136,7 @@
 <div class="wrapper row5">
   <div id="copyright" class="hoc clear"> 
     <!-- ################################################################################################ -->
-    <p class="fl_left">Copyright &copy; 2021 - All Rights Reserved - <a href="dashboard.php">PunChaNa</a></p>
+    <p class="fl_left">Copyright &copy; 2021 - All Rights Reserved - <a href="#">PunChaNa</a></p>
     <p class="fl_right">PunChaNa by Groups 3</a></p>
     <!-- ################################################################################################ -->
   </div>
@@ -166,9 +147,45 @@
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
 <script src="layout/scripts/jquery.min.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 </body>
 </html>
+
+
+
+<script>
+$(document).ready(function(){
+
+ load_data();
+
+ function load_data(query)
+ {
+  $.ajax({
+   url:"fetch.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#result').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+</script>

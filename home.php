@@ -140,8 +140,8 @@
       <p class="btmspace-50">มาร่วมมือกันสร้างผลกระทบทางสังคมอันยิ่งใหญ่ ส่งต่อความช่วยเหลือกว้างไกลทั่วประเทศผ่านเว็บไซต์ปันชนะ</p>
       <nav>
         <ul class="nospace">
-          <li><a href="home.html"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="project.php">ส่งโครงการ</a></li>
+          <li><a href="home.php"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="submission.html">ส่งโครงการ</a></li>
           <li><a href="contact.html">ติดต่อเรา</a></li>
        
           

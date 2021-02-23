@@ -21,16 +21,14 @@
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
 
-        <h1><img src="images/logo4.png" alt="" ><a href="index.php">PunChaNa</a></h1>
+        <h1><img src="images/logo4.png" alt="" ><a href="home.php">PunChaNa</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">
-          <li><a href="index.php">หน้าหลัก</a></li>
+        <li><a href="home.php">หน้าหลัก</a></li>
           <li><a href="submission.html">ส่งโครงการ</a></li>
-          <li><a href="#">รายงาน</a></li>
-          <li><a href="#">ติดต่อเรา</a></li>
-          <li><a href="login.php">เข้าสู่ระบบ</a></li>
-          <li><a href="register.php">สมัครสมาชิก</a></li>
+          <li><a href="contact.html">ติดต่อเรา</a></li>
+          <li><a href="logout.php">ออกจากระบบ</a></li>
         </ul>
       </nav>
       <!-- ################################################################################################ -->
@@ -105,28 +103,28 @@
     </div>
 
     <?php  
- $connect = mysqli_connect("localhost", "root", "", "punchana");  
- $id = $_GET["type_id"];
- $sql = "SELECT * FROM project WHERE type_id = '" . $id ."'";
- $result = mysqli_query($connect, $sql);
- echo "<table border='1' cellpadding='10' width=80%>";
+      $connect = mysqli_connect("localhost", "root", "", "punchana");  
+      $id = $_GET["type_id"];
+      $sql = "SELECT * FROM project WHERE type_id = '" . $id ."'";
+      $result = mysqli_query($connect, $sql);
+      echo "<table border='1' cellpadding='10' width=80%>";
       echo "<tr>
-                  <th width='40%'>โครงการ</th>  
-                  <th width='30%'>รูปภาพ</th>  
-                  <th width='40%'>รายละเอียด</th>
-                
+                  <th width='20%'>โครงการ</th>  
+                  <th width='20%'>รูปภาพ</th>  
+                  <th width='30%'>รายละเอียด</th>
+                  <th width='30%'>ข้อมูลการรับบริจาค</th>
           </tr>";
       while($row = mysqli_fetch_array($result)) {
               echo "<tr>";
         echo '<td>' . $row['name_proj'] . '</td>';
         echo '<td><img src="img/'.$row["img"].'"style="width:300px;"></td>';
         echo '<td>' . $row['description'] . '</td>';
-       
+        echo '<td>' . $row['banking'] . '</td>';
         echo "</tr>";
       }
       echo "</table>";
       $connect->close();
- ?>
+    ?>
     
     <!-- ################################################################################################ -->
     <!-- / main body -->
@@ -145,9 +143,9 @@
       <p class="btmspace-50">มาร่วมมือกันสร้างผลกระทบทางสังคมอันยิ่งใหญ่ ส่งต่อความช่วยเหลือกว้างไกลทั่วประเทศผ่านเว็บไซต์ปันชนะ</p>
       <nav>
         <ul class="nospace">
-          <li><a href="index.html"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="#">ส่งโครงการ</a></li>
-          <li><a href="#">ติดต่อเรา</a></li>
+        <li><a href="home.php"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="submission.html">ส่งโครงการ</a></li>
+          <li><a href="contact.html">ติดต่อเรา</a></li>
           
         </ul>
       </nav>

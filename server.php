@@ -13,7 +13,6 @@
         $phone = mysqli_real_escape_string($db, $_POST['phone']);
         $email = mysqli_real_escape_string($db, $_POST['email']);
         $password = mysqli_real_escape_string($db, $_POST['password']);
-        $user_type = mysqli_real_escape_string($db, $_POST['user_type']);
 
         if(empty($username)){
             array_push($errors, "username is required");
@@ -27,18 +26,15 @@
         if(empty($password)){
             array_push($errors, "password is required");
         }
-        if(empty($user_type)){
-            array_push($errors, "usertype is required");
-        }
         
         if(count($errors) == 0){
             $password = md5($password);
-            $sql = "INSERT INTO users (username, phone, email, password, user_type ) VALUES('$username','$phone','$email','$password','$user_type')";
+            $sql = "INSERT INTO users (username, phone, email, password) VALUES('$username','$phone','$email','$password')";
             mysqli_query($db, $sql);
 
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
-            header('location: index.php');
+            header('location: home.php');
         }
     }
 

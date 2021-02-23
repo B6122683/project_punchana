@@ -30,17 +30,6 @@
             <label>รหัสผ่าน</label>
             <input type="password" name="password">
         </div>
-
-
-        <div class="input-group">
-        <label for="user_type">ประเภทผู้ใช้ </label>
-        <select name="user_type" id="user_type" style="width:97%; font-size: 13px; min-height: 30px; margin-bottom:3.0%;">
-            <option value="other">---</option>
-        <option value="admin">Admin</option>
-        <option value="user">User</option>
-        
-        </select>
-</div>
         <div class="input-group">
             <button type="submit" name="submit" class="btn">สมัครสมาชิก</button>
         </div>

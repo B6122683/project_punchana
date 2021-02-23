@@ -28,13 +28,13 @@
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
 
-        <h1><img src="images/logo4.png" alt="" ><a href="index.php">PunChaNa</a></h1>
+        <h1><img src="images/logo4.png" alt="" ><a href="dashboard.php">PunChaNa</a></h1>
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">
-            <li><a href="home.php">หน้าหลัก</a></li>
-          <li><a href="project.php">ส่งโครงการ</a></li>
-          <li><a href="contact.html">ติดต่อเรา</a></li>
+          <li><a href="dashboard.php">หน้าหลัก</a></li>
+          <li><a href="user.php">ข้อมูลสมาชิก</a></li>
+          <li><a href="report.php">รายงาน</a></li>
           <li><a href="logout.php">ออกจากระบบ</a></li>
         </ul>
       </nav>
@@ -42,93 +42,50 @@
     </header>
   </div>
   <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <section id="pageintro" class="hoc clear">
-    <div> 
-      <!-- ################################################################################################ -->
-      <h5 class="heading"></h5>
-      <p>จะเป็นใครไม่สำคัญ ร่วมมือกันผ่านปันชนะ มาร่วมมือกันสร้างผลกระทบทางสังคมอันยิ่งใหญ่ ส่งต่อความช่วยเหลือกว้างไกลทั่วประเทศผ่านเว็บไซต์ปันชนะ</p>
-      <footer><a class="btn" href="#">ร่วมบริจาค</a></footer>
-      <!-- ################################################################################################ -->
-    </div>
-  </section>
-  <!-- ################################################################################################ -->
-</div>
-<!-- End Top Background Image Wrapper -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-
-
-
-<div class="wrapper row2">
-  <section class="hoc container clear"> 
-    <!-- ################################################################################################ -->
-    <div class="sectiontitle">
-      <h6 class="heading">โครงการปันชนะ</h6>
-      <p> - สุขทั้งใจทั้งผู้ให้และผู้รับ -</p>
-    </div>
- 
-    <ul class="nospace group services">
-      <li class="one_quarter first">
-        <article><?php echo '<a href="child.php?type_id=2">' ?><i class="fa fa-3x fa-child"></i></a>
-          <h6 class="heading font-x1"><a href="#">เด็ก</a></h6>
-          <p>ร่วมเป็นส่วนหนึ่งของการช่วยเหลือเด็กๆ ให้มีอยู่ในสังคมได้อย่างปลอดภัย</p>
-        </article>
-      </li>
-      <li class="one_quarter">
-        <article><?php echo '<a href="wheelchair.php?type_id=3">' ?><i class="fa fa-3x fa-wheelchair"></i></a>
-          <h6 class="heading font-x1"><a href="#">ผู้สูงอายุ</a></h6>
-          <p>ผู้สูงอายุที่ด้อยโอกาส ได้รับการพัฒนาคุณภาพชีวิต จากชุมชนและสังคมอย่างยั่งยืน</p>
-        </article>
-      </li>
-      <li class="one_quarter">
-        <article><?php echo '<a href="animal.php?type_id=1">' ?><i class="fa fa-3x fa-paw"></i></a>
-          <h6 class="heading font-x1"><a href="#">สัตว์</a></h6>
-          <p>เติมรัก ต่อชีวิต ปันความสุขแก่สัตว์ให้มีคุณภาพชีวิตที่ดีกว่าเดิม</p>
-        </article>
-      </li>
-      <li class="one_quarter">
-        <article><?php echo '<a href="globe.php?type_id=4">' ?><i class="fa fa-3x fa-globe"></i></a>
-          <h6 class="heading font-x1"><a href="#">สิ่งแวดล้อม</a></h6>
-          <p>สนับสนุนให้สามารถรักษาทรัพยากรธรรมชาติและสิ่งแวดล้อมได้อย่างยั่งยืน</p>
-        </article>
-      </li>
-    </ul>
-    <!-- ################################################################################################ -->
-    <div class="clear"></div>
-  </section>
-</div>
-
-
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row3">
+  <div class="wrapper row3">
   <main class="hoc container clear"> 
     <!-- main body -->
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <h6 class="heading">โครงการทั้งหมด</h6>
-      <p>ร่วมเป็นส่วนหนึ่งของการช่วยเหลือเด็กๆ ให้มีอยู่ในสังคมได้อย่างปลอดภัย</p>
+      <h6 class="heading">สรุปรายงานโครงการทั้งหมด</h6>
     </div>
+    <div id="id01"></div>
 
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+      var url = "fetchproject.php";
 
-<div class="form-group">
-    <div class="input-group">
-     <span class="input-group-addon">Search</span>
-     <input type="text" name="search_text" id="search_text" placeholder="พิมพ์ข้อความค้นหาที่นี่" class="form-control" />
-    </div>
-   </div>
-   <br />
-   <div id="result"></div>
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              myFunction(this.responseText);
+          }
+      }
+      xmlhttp.open("POST", url, true);
+      xmlhttp.send();
+
+      function myFunction(response) {
+          var arr = JSON.parse(response);
+          var i;
+          var out = "<table><tr><th width='200px'>ชื่อโครงการ</th><th width='200px'>ผู้จัดโครงการ</th><th width='50px'>หมายเลขโทรศัพท์</th></tr>";
+
+          for(i = 0; i < arr.length; i++) {
+              out += "<tr><td>" +
+              arr[i].Name +
+              "</td><td>" +
+              arr[i].Manager +
+              "</td><td>" +
+              arr[i].Phone +
+              "</td></tr>";
+          }
+          out += "</table>";
+          document.getElementById("id01").innerHTML = out;
+      }
+    </script>  
     <!-- ################################################################################################ -->
     <!-- / main body -->
     <div class="clear"></div>
   </main>
 </div>
-
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row4 bgded overlay" style="background-image:url('images/demo/backgrounds/02.png');">
